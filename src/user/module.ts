@@ -3,7 +3,7 @@ import { MikroOrmModule } from 'nestjs-mikro-orm';
 
 import { User } from './entities/user';
 
-import { UserController } from './controllers/user';
+import { UserResolver } from './resolvers/user';
 
 @Module({
 	imports: [
@@ -13,8 +13,8 @@ import { UserController } from './controllers/user';
 			],
 		})
 	],
-	controllers: [
-		UserController,
-	],
+	providers: [
+		UserResolver,
+	]
 })
 export class UserModule {}

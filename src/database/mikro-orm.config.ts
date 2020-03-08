@@ -1,12 +1,19 @@
 import { Options } from 'mikro-orm';
 
+const {
+    DB_USER,
+    DB_PASSWORD,
+    DB_NAME,
+    DB_TYPE,
+} = process.env;
+
 export default {
     entitiesDirs: ['dist/**/entities'],
     entitiesDirsTs: ['src/**/entities'],
-    user: 'username',
-    password: 'password',
-    dbName: 'database',
-    type: 'postgresql',
+    user: DB_USER,
+    password: DB_PASSWORD,
+    dbName: DB_NAME,
+    type: DB_TYPE,
     autoFlush: false, // read more here: https://mikro-orm.io/unit-of-work/
     migrations: {
         tableName: 'mikro_orm_migrations', // name of database table with log of executed transactions

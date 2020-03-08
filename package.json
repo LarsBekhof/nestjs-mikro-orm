@@ -18,7 +18,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist && rm -rf temp",
     "schema:create": "mikro-orm schema:create -r",
     "schema:update": "mikro-orm schema:update -r",
     "schema:drop": "mikro-orm schema:drop -r",
@@ -27,18 +27,22 @@
     "migration:down": "mikro-orm migration:down",
     "migration:list": "mikro-orm migration:list",
     "migration:pending": "mikro-orm migration:pending"
-
   },
   "dependencies": {
     "@nestjs/common": "^6.11.11",
     "@nestjs/core": "^6.11.11",
+    "@nestjs/graphql": "^6.6.2",
     "@nestjs/platform-express": "^6.11.11",
+    "apollo-server-express": "^2.11.0",
+    "graphql": "^14.6.0",
+    "graphql-tools": "^4.0.7",
     "mikro-orm": "^3.3.5",
     "nestjs-mikro-orm": "^1.0.3",
     "pg": "^7.18.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.4",
+    "type-graphql": "^0.17.6"
   },
   "devDependencies": {
     "@nestjs/cli": "^6.13.2",
