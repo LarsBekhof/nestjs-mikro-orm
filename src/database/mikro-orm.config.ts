@@ -1,5 +1,7 @@
 import { Options } from 'mikro-orm';
 
+require('dotenv').config();
+
 const {
     DB_USER,
     DB_PASSWORD,
