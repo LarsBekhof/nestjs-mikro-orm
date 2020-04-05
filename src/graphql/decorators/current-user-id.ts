@@ -1,15 +1,5 @@
-import {
-	Injectable,
-	ExecutionContext,
-} from '@nestjs/common';
-import { GqlExecutionContext } from '@nestjs/graphql';
-import { AuthGuard } from '@nestjs/passport';
+import { createParamDecorator } from '@nestjs/common';
 
-@Injectable()
-export class GqlGuard extends AuthGuard('jwt') {
-	getRequest(context: ExecutionContext) {
-		const ctx = GqlExecutionContext.create(context);
-
-		return ctx.getContext().req;
-	}
-}
+export const CurrentUserId = createParamDecorator(
+	(_, [_root, _args, ctx,  _info]) => ctx.req.user.userId,
+);
